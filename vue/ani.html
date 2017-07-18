@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#db5945">
+<link href="../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../lib/animate.css" rel="stylesheet">
+<script src="../lib/jquery-3.2.1.min.js"></script>
+<script src="../lib/lodash.js"></script>
+<script src="../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="../lib/vue.js"></script>
+<style>
+.list-item2 {
+	transition: all 1s;
+  margin-right: 10px;
+}
+.list-item {
+	transition: all 1s;
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to
+/* .list-leave-active for <2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.list-move {
+  transition: transform 1s;
+}
+
+ 
+.list-leave-active {
+  position: absolute;
+}
+/***********************sudu**************/
+ 
+.mycontainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 238px;
+  margin-top: 10px;
+}
+.cell {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #aaa;
+  margin-right: -1px;
+  margin-bottom: -1px;
+}
+.cell:nth-child(3n) {
+  margin-right: 0;
+}
+.cell:nth-child(27n) {
+  margin-bottom: 0;
+}
+.cell-move {
+  transition: transform .8s;
+}
+/***********************sudu**************/
+
+</style>
+<title>Animate</title>
+</head>
+<body>
+
+<div  id="app" style="text-align:center" >
+	
+	==============
+	<div style="margin-left:20px;">
+	<div id="sudoku-demo" class="demo">
+
+	  <button @click="shuffle2">
+	    Shuffle
+	  </button>
+	  <transition-group name="cell" tag="div" class="mycontainer">
+	    <div v-for="cell in cells" :key="cell.id" class="cell">
+	      {{ cell.number }}
+	    </div>
+	  </transition-group>
+	</div>
+	</div>
+	==============
+	
+		 
+	<div style="margin-left:20px;">
+	 <button @click="show = !show">
+    Toggle render
+	  </button>
+	  <transition
+	    name="custom-classes-transition"
+	    enter-active-class="animated swing"
+	    leave-active-class="animated bounceOutRight"
+	  >
+		   <span  v-if="show"  style="display: block;" >Animate.css</span>
+	  </transition>
+	</div>
+	
+	<br>
+	 <button v-on:click="add">Add</button>
+  <button v-on:click="remove">Remove</button>
+  <button v-on:click="shuffle">Shuffle</button>
+ <transition-group name="list" tag="p">
+    <span v-for="item in items" v-bind:key="item" class="list-item">
+      {{ item }}
+    </span>
+  </transition-group>
+  
+ <transition-group name="list" tag="ul"
+  enter-active-class="animated bounceInRight"
+ 
+ >
+    <li v-for="item in items" v-bind:key="item" class="list-item2">
+      {{ item }}
+    </li>
+  </transition-group>
+	
+	
+</div>
+
+<script src="ani.js"></script>
+
+</body>
+</html>
