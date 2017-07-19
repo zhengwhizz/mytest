@@ -2,7 +2,7 @@
   "name": "PWA My",
   "short_name": "PWA",
   "lang": "zh-CN",
-  "start_url": "/",
+  "start_url": "/mytest/vue/ani.html",
   "display": "standalone",
   "theme_color": "#ababab",
   "background_color": "#ffffff",
