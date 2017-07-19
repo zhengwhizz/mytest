@@ -15,6 +15,9 @@ var app = new Vue({
 	      })
 
 	},
+	mounted:function(){
+		this.shuffle2();
+	},
 	methods : {
 		randomIndex : function() {
 			return Math.floor(Math.random() * this.items.length)
